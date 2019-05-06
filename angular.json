@@ -29,11 +29,11 @@
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/ng2-toastr/bundles/ng2-toastr.min.css"
+              "node_modules/ngx-toastr/bundles/ngx-toastr.min.css"
       
             ],
             "scripts": [
-              "node_moduules/jquery/dist/jquery.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
 
             ],

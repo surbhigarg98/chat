@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewContainerRef } from '@angular/core';
 import{AppService} from "./../../app.service";
 import{Router} from "@angular/router";
-import{ToastsManager} from "ng2-toastr/ng2-toastr";
+import{ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-signup',
@@ -18,8 +18,7 @@ export class SignupComponent implements OnInit {
 
   constructor(public appService:AppService,
     public router:Router,
-    private toastr:ToastsManager,
-    vcr:ViewContainerRef
+    private toastr:ToastrService
     ) { }
 
   ngOnInit() {

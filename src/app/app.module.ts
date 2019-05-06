@@ -7,7 +7,7 @@ import { ChatModule } from './chat/chat.module';
 import { UserModule } from './user/user.module';
 import { LoginComponent } from './user/login/login.component';
 import{HttpClientModule } from "@angular/common/http";
-import{ToastModule} from "ng2-toastr/ng2-toastr";
+import{ToastrService} from "ngx-toastr";
 import{BrowserAnimationsModule} from "@angular/platform-browser/animations"
 
 
@@ -18,7 +18,7 @@ import{BrowserAnimationsModule} from "@angular/platform-browser/animations"
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ToastModule.forRoot(),
+  
     HttpClientModule,
     AppRoutingModule,
     ChatModule,
