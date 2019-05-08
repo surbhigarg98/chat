@@ -25,7 +25,7 @@ private socket;
    }
    public onlineUserList = ()=>{
     return Observable.create((observer)=>{
-      this.socket.on("onlineUserList",(userList)=>{
+      this.socket.on("online-user-list",(userList)=>{
         observer.next(userList);
 
       })
@@ -42,6 +42,33 @@ private socket;
   public setUser=(authToken)=>{
     this.socket.emit("set-user",(authToken))
   }
+
+public markChatAsSeen = (userDetails)=>{
+this.socket.emit('mark-chat-as-seen',userDetails);
+}
+public getChat(senderId,receiverId,skip):Observable<any>{
+
+return this.http.get(`${this.url}api/v1/chat/get/for/user?senderId=${senderId}&receiverId=${receiverId}&skip=${skip}&authToken=${Cookie.get('authToken')}`)
+
+}
+
+
+
+
+public chatByUserId=(userId)=>{
+return Observable.create((observer)=>{
+this.socket.on(userId,(data)=>{
+observer.next(data)
+})
+})
+}
+public sendChatMessage=(chatMsgObject)=>{
+  this.socket.emit('chat-msg',chatMsgObject);
+}
+public exitSocket=()=>{
+  this.socket.disconnect();
+}
+
   private handleError(err:HttpErrorResponse){
     let errorMessage="";
     if(err.error instanceof Error){

@@ -37,6 +37,12 @@ const params=new HttpParams()
 .set('password',data.password);
 return this.http.post(`${this.url}/api/vi/users/login`,params);
 }
+public logout():Observable<any>{
+const params=new HttpParams()
+.set('authToken',Cookie.get('authToken'))
+return this.http.post(`${this.url}/api/v1/users/logout`,params);
+  
+}
 private handleError(err:HttpErrorResponse){
   let errorMessage="";
   if(err.error instanceof Error){
