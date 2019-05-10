@@ -103,7 +103,7 @@
 
             </div>
             <div class="message" [ngClass]="{'float-right other-message': message.senderId == userInfo.userId, 'my-message': message.senderId != userInfo.userId}">
-              {{message}}
+              {{message?.message | removeSpecialCharPipe: '#' |removeSpecialCharPipe: '$'}}
             </div>
           </li>
 

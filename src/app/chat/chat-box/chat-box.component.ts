@@ -4,6 +4,7 @@ import{AppService} from "./../../app.service";
 import{Router} from "@angular/router";
 import {Cookie} from "ng2-cookies/ng2-cookies";
 import{ToastrService} from "ngx-toastr";
+import {ChatMessage} from './chat';
 
 @Component({
   selector: 'app-chat-box',
@@ -148,9 +149,14 @@ public sendMessageUsingKeypress:any=(event:any)=>{
     this.sendMessage();
   }
 }
+
+
+
+
+
 public sendMessage:any=()=>{
   if(this.messageText){
-    let chatMessageObject={
+    let chatMessageObject:ChatMessage={
       senderName:this.userInfo.firstName + "" +this.userInfo.lastName,
       senderId:this.userInfo.userId,
       receiverName:Cookie.get('receiverName'),
@@ -195,4 +201,9 @@ if(apiResponse.status==200){
   
   })
 }
+public showUserName=(name:string)=>{
+  this.toastr.success('you are chatting with' + name)
+}
+
+
 }
